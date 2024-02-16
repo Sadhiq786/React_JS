@@ -1,41 +1,15 @@
-// import ButtonComponents from "./Components/buttons/buttons-components"
-// import OrderedList from "./Components/lists/Ordered-list/Ordered-list"
-// import UnOrderedList from "./Components/lists/Unordered-list/Unordered-list"
-// import TableContent from "./Components/tables/TableCreate"
+import Parent from "./Components/props/parent";
+import Profile from "./Components/props/profile";
 
-import Gallery from "./Components/exports-imports/gallery.js";
-import RulesofJsx, { Picture as Pic } from "./Components/jsx/Jsx_rules.js";
-
-
-// function App()
-// {
-
-//   return (
-//     <div>
-//       <h1>Hello World</h1>
-
-//       <ButtonComponents/> 
-//       <OrderedList/>    
-//       <UnOrderedList/> 
-//       <TableContent/>
-//     </div>
-//   )
-// }
-// export default App
 function App()
 {
 
   return(
 
     <div>
-      <h1>Hello Sadhiq</h1>
-      <RulesofJsx></RulesofJsx>
-
-      <Gallery/>
-      <Pic/>
+      <Profile/>
+      <Parent/>
     </div>
   )
 }
-
-
 export default App;

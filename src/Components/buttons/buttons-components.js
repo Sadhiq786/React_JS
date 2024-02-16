@@ -1,9 +1,9 @@
 
-function ButtonComponents()
+function ButtonComponents({title, width=100, bgColor, textColor})
 {
     return (
 
-        <button>Login</button>
+        <button style={{width:width, backgroundColor:bgColor, color: textColor}}>{title}</button>
     )
 }
 export default ButtonComponents;
