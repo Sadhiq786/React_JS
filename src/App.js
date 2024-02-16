@@ -22,29 +22,6 @@ import RulesofJsx, { Picture as Pic } from "./Components/jsx/Jsx_rules.js";
 //   )
 // }
 // export default App
-
-
-
-// import Profile from "./Components/jsx/jsx";
-// import TableData from "./Components/jsx/Feb_13.js";
-// import { Data, Picture } from "./Components/jsx/Feb_14.js";
-
-// function App()
-// {
-//   return(
-//     <div>
-//       <table>
-//           <TableData/>
-//       </table>
-//       <Data/>
-//       <Picture/>
-//     </div>
-
-//   )
-// }
-// export default App;
-
-
 function App()
 {
 
@@ -59,5 +36,6 @@ function App()
     </div>
   )
 }
+
 
 export default App;
