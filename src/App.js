@@ -1,19 +1,16 @@
-import { Spinner } from "react-bootstrap";
-import Content, { Cards } from "./Components/style/bootstrap/content";
-import FancyText from "./Components/style/text";
+import Products from "./Components/class-components/Products/products.js";
+import ImageComponent from "./Components/class-components/image/image-component";
+import YoutubeButton from "./Components/class-components/youtubeButton/YoutubeButton.js";
 
 function App()
 {
 
   return(
     <div>
-    {/* <FancyText/> */}
-
-    {/* <Content/> */}
-
-    <Spinner/>
-
-  </div>
+      <ImageComponent/>
+       <YoutubeButton/>
+       <Products/>
+    </div>
   )
   
 }

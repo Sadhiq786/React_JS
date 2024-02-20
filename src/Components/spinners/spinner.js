@@ -1,19 +1,18 @@
-import { Audio } from 'react-loader-spinners'
+import { DNA } from 'react-loader-spinner'
 
 const Spinner =()=>{
 
     return (
-
-        <Circles
+        <DNA
+            visible={true}
             height="80"
             width="80"
-            color="#4fa94d"
-            ariaLabel="circles-loading"
+            ariaLabel="dna-loading"
             wrapperStyle={{}}
-            wrapperClass=""
-            visible={true}
-            />
-        )
+            wrapperClass="dna-wrapper"
+            />)
+          
+        
 
 }
 export default Spinner;
