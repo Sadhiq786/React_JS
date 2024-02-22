@@ -1,11 +1,11 @@
-import DataInTable from "./Components/class-components/Products/Tableproducts.js";
+import Products from "./Components/class-components/Products/products.js";
 
 function App()
 {
 
   return(
     <div>
-      <DataInTable/>
+      <Products/>
     </div>
   )
   
