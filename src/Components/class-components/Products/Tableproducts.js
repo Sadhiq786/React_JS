@@ -1,4 +1,5 @@
 import { Component } from "react";
+import "./Tableproducts.css"
 
 class DataInTable extends Component{
     constructor()
@@ -85,6 +86,14 @@ class DataInTable extends Component{
  
      }
 
+     resetFilter=()=> {
+        this.setState(
+            {
+                filter: this.state.Data,
+            }
+        )
+     }
+
     render()
     {
         const tablestyle= {
@@ -124,9 +133,12 @@ class DataInTable extends Component{
 
                 </table>
 
-                <button onClick={this.Funfilter1}>React-Developer</button>
+                <div className="buttons">
+                <button onClick={this.Funfilter1}>React</button>
                 <button onClick={this.Funfilter2}>JavaScript</button>
                 <button onClick={this.Funfilter3}>Angular</button>
+                <button onClick={this.resetFilter}>Reset</button>
+                </div>
             </div>
         )
     }
