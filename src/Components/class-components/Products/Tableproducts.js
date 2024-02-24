@@ -131,4 +131,5 @@ class DataInTable extends Component{
         )
     }
 }
+
 export default DataInTable;
