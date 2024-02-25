@@ -1,0 +1,22 @@
+
+
+button{
+    width: 100px;
+    background-color: chocolate;
+    color: aliceblue;
+    border: none;
+    padding: 5px;
+    
+}
+
+button:hover{
+    background-color: lightsalmon;
+}
+
+.buttons{
+    width: fit-content;
+    display: flex;
+    gap: 80px;
+    margin: auto;
+    margin-top: 20px;
+}
