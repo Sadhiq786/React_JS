@@ -246,7 +246,7 @@ class Products extends Component{
                         "count": 145
                     }
                 }
-            ]
+            ],          
         }
 
     }
@@ -262,18 +262,80 @@ class Products extends Component{
         )
     }
 
+    // Child To Parent (Method)
+    ChildToParent=(data)=>{
+       
+        alert("child to parent")
+    }
+
+    //increament
+    increament=(data)=>{
+
+        var result = this.state.products.map((eachObject)=>{
+        var increamentprice = 10;
+            if(eachObject.id===data.id)
+            {
+                let newcount = {...eachObject,rating:{
+                    ...eachObject.rating,count: eachObject.rating.count + 1
+                },
+
+                price: eachObject.price + increamentprice
+
+            }
+
+                return  newcount;
+            }
+            else{
+                return eachObject
+            }
+            
+        })
+        console.log(result, "result logged")
+
+        this.setState({
+            products:result
+        })
+    } 
+
+    //decreament
+    decreament=(data)=>{
+
+        var result1 = this.state.products.map((eachObject)=>{
+        var decreamentprice = 10;
+
+            if(eachObject.id===data.id)
+            {
+                let countdecreament  = {...eachObject,rating:{
+                    ...eachObject.rating,count:eachObject.rating.count - 1
+                },
+                price: eachObject.price - decreamentprice
+            }
+
+                return countdecreament;
+            }
+            else{
+                return eachObject;
+            }
+        })
+        console.log(result1)
+
+        this.setState({
+            products:result1
+        })
+    }
+
     render(){
         return(
 
             <div>
                 <button onClick={this.sort}>Sort by clicking</button>
+
                 {
                     this.state.products.map((eachObject)=>{
-
+                     
                         return(
-                            <div>
-                                <h3>{eachObject.title}</h3>
-                                <h4>{eachObject.price}</h4>
+                            <div key={eachObject.id}>
+                                <ProductListing  data={eachObject} communication={this.ChildToParent} increament={this.increament} decreament={this.decreament}/>
                             </div>
                         )
                     })
@@ -284,3 +346,22 @@ class Products extends Component{
 }
 
 export  default Products;
+
+
+class ProductListing extends Component{
+    render()
+    {
+        console.log("Hello ProductListing",this.props)
+        return(
+            <div>
+                <h3>{this.props.data.price}</h3>
+                <h3>Count -- {this.props.data.rating.count}</h3>
+                <button onClick={()=>this.props.increament(this.props.data)}>+</button>
+                <button onClick={()=>this.props.decreament(this.props.data)}>-</button>
+                {/* <h5>{this.props.data.rating.count}</h5> */}
+
+                {/* <button onClick={()=>this.props.communication(this.props.data)}>Click to see Products</button> */}
+            </div>
+        )
+    }
+}
