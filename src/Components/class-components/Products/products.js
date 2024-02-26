@@ -327,20 +327,20 @@ class Products extends Component{
     render(){
         return(
 
-            <div>
+            <React.Fragment>
                 <button onClick={this.sort}>Sort by clicking</button>
 
                 {
                     this.state.products.map((eachObject)=>{
                      
                         return(
-                            <div key={eachObject.id}>
-                                <ProductListing  data={eachObject} communication={this.ChildToParent} increament={this.increament} decreament={this.decreament}/>
-                            </div>
+                            <React.Fragment key={eachObject.id}>
+                                <ProductListing data={eachObject} communication={this.ChildToParent} increament={this.increament}/>
+                            </React.Fragment>
                         )
                     })
                 }
-            </div>
+            </React.Fragment>
         )
     }
 }

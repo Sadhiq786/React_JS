@@ -1,12 +1,11 @@
+import ListItens from "../list-items/list_items";
+
 function OrderedList()
 {
     return (
 
         <ol>
-            <li>Hi</li>
-            <li>Good Morning</li>
-            <li>Sadhiq</li>
-            <li>How are you??</li>
+            <ListItens/>
         </ol>
     )
 

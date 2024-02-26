@@ -1,14 +1,11 @@
 import './App.css';
-import TableItems from './Components/class-components/Products/Tabledata';
-import CircleGenerator from './Components/class-components/Products/circlesAdd';
-import Products from './Components/class-components/Products/products';
+
+import OrderedList from './Components/lists/Ordered-list/Ordered-list';
 
 function App() {
   return (
     <div>
-      {/* <Products/> */}
-
-      <TableItems/>
+      <OrderedList/>
     </div>
   );
 }
