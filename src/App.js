@@ -6,7 +6,7 @@ function App()
 
   return(
 
-    <div>
+    <div style>
       <Profile/>
       <Parent/>
     </div>
