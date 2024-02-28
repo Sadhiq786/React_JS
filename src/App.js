@@ -1,19 +1,16 @@
-import './App.css';
-import CircleCreate from './Components/class-components/Products/CircleTask/CircleTask';
-import CarouselTask from './Components/class-components/CarouselTask/CarouselTask';
-import Items from './Components/class-components/axios/TableAxios';
-import DataInTable from './Components/class-components/axios/TableAxios';
-import ListofAllItems from './Components/class-components/axios/ListAxios';
-import CardsTask from './Components/class-components/axios/CardsAxios';
+import Timer_Example from "./Components/Hooks/Ex1_useState";
+import UseSetExample1 from "./Components/Hooks/Ex0_useState";
+import UsestateExample3 from "./Components/Hooks/Ex2_useStaye";
+import EmployeesList from "./Components/Hooks/Task_useState";
 
 function App() {
   return (
     <div>
-      {/* <CircleCreate/> */}
-      {/* <CarouselTask/> */}
-      {/* <DataInTable/> */}
-      {/* <ListofAllItems/> */}
-      <CardsTask/>
+      {/* <UseSetExample1/>
+      <Timer_Example/>
+      <UsestateExample3/> */}
+
+      <EmployeesList/>
     </div>
   );
 }
