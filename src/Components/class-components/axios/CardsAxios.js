@@ -70,7 +70,8 @@ const childcard = {
 const childcard1 = {
     width: "338.5px",
     backgroundColor: "lightgrey",
-    height: "50%",
+    height: "50%",  
+    
 }
 
 const imageStyle = {
