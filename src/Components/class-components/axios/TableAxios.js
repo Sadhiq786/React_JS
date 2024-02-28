@@ -1,4 +1,6 @@
 import { Component } from "react";
+import axios from "axios";
+
 
 
 class DataInTable extends Component{
@@ -13,10 +15,11 @@ class DataInTable extends Component{
 
     fetchData=()=>{
 
-        axios.get("https://fakestoreapi.com/products")
+        axios .get("https://fakestoreapi.com/products")
         .then((res)=>{
-            this.state.Items.push(res.data);
+            this.setState({Items:res.data});
         })
+        .catch((error)=>console.log(error))
     }
 
 
@@ -24,12 +27,12 @@ class DataInTable extends Component{
     {
         return(
             <>
-            <button>Fetch Data</button>
+            <button onClick={this.fetchData}>Fetch Data</button>
             <table>
                 <tr>
                     <th>ID</th>
                     <th>Title</th>
-                    <th><img src={}></img></th>
+                    <th><img src></img></th>
                     <th>Price</th>
                     <th>Count</th>
                 </tr>
@@ -37,8 +40,12 @@ class DataInTable extends Component{
                 {
                     this.state.Items.map((eachObject)=>{
                         return(
-                            <tr>
-                                <td key={eachObject.id}></td>
+                            <tr key={eachObject.id}>
+                                <td>{eachObject.id}</td>
+                                <td>{eachObject.title}</td>
+                                <td><img src={eachObject.image}></img></td>
+                                <td>{eachObject.price}</td>
+                                <td>{eachObject.count}</td>
                             </tr>
                         )
                     })
@@ -48,3 +55,5 @@ class DataInTable extends Component{
         )
     }
 }
+
+export default DataInTable;
