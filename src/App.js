@@ -4,15 +4,16 @@ import CarouselTask from './Components/class-components/CarouselTask/CarouselTas
 import Items from './Components/class-components/axios/TableAxios';
 import DataInTable from './Components/class-components/axios/TableAxios';
 import ListofAllItems from './Components/class-components/axios/ListAxios';
+import CardsTask from './Components/class-components/axios/CardsAxios';
 
 function App() {
   return (
     <div>
       {/* <CircleCreate/> */}
       {/* <CarouselTask/> */}
-      <DataInTable/>
-      <ListofAllItems/>
-
+      {/* <DataInTable/> */}
+      {/* <ListofAllItems/> */}
+      <CardsTask/>
     </div>
   );
 }
