@@ -26,7 +26,7 @@ class CardsTask extends Component{
                     this.state.cards.map((eachObject)=>{
                         return(
                             <div style={childcard}>
-                            <img src={eachObject.image} style={imageStyle} ></img>
+                                <img src={eachObject.image} style={imageStyle} ></img>
 
                                 <div style={childcard1}>
                                     <p style={textstyle}><h6>{eachObject.title}</h6></p>

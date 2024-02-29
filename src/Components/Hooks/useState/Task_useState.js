@@ -12,9 +12,9 @@ const EmployeesList = ()=>{
     const addEmployees=()=>{
 
         const newEmployee = {
-            id: employees.length + 1,
+            // id: employees.length + 1,
             name: `Employee ${employees.length + 1}`,
-            age: Math.floor(Math.random() * 30) + 20,
+            // age: Math.floor(Math.random() * 30) + 20,
         }
 
         setEmployeeData([...employees,newEmployee]);
@@ -36,17 +36,18 @@ const EmployeesList = ()=>{
                     employees.map((eachPerson,id)=>{
                         return(
                             <>
-                            <li>{eachPerson.id}</li>
+                            {/* <li>{eachPerson.id}</li> */}
                             <li>{eachPerson.name}</li>
-                            <li>{eachPerson.age}</li>
+                            {/* <li>{eachPerson.age}</li> */}
 
-                            <button onClick={addEmployees}>Add employees</button>
                             <button onClick={()=>deleteemp(eachPerson.id)}>Delete employees</button>
                             </>
                         )
                     })
                 }
             </ul>
+            <button onClick={addEmployees}>Add employees</button>
+
         </>
     )
 }
