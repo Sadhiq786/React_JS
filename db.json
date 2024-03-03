@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "John Doe",
+        "username": "johndoe",
+        "email": "johndoe@example.com"
+       
+    },
+    {
+        "id": 2,
+        "name": "Jane Doe",
+        "username": "janedoe",
+        "email": "janedoe@example.com"
+        
+    },
+    {
+        "id": 3,
+        "name": "Jim Smith",
+        "username": "jimsmith",
+        "email": "jimsmith@example.com"
+       
+    },
+    {
+        "id": 4,
+        "name": "Sara Wilson",
+        "username": "sarawilson",
+        "email": "sarawilson@example.com"
+       
+    },
+    {
+        "id": 5,
+        "name": "Bob Johnson",
+        "username": "bobjohnson",
+        "email": "bobjohnson@example.com"
+        
+    },
+    {
+        "id": 6,
+        "name": "Amy Williams",
+        "username": "amywilliams",
+        "email": "amywilliams@example.com"
+        
+    },
+    {
+        "id": 7,
+        "name": "Michael Brown",
+        "username": "michaelbrown",
+        "email": "michaelbrown@example.com"
+        
+    },
+    {
+        "id": 8,
+        "name": "Emily Davis",
+        "username": "emilydavis",
+        "email": "emilydavis@example.com"
+        
+    },
+    {
+        "id": 9,
+        "name": "William Martinez",
+        "username": "williammartinez",
+        "email": "williammartinez@example.com"
+        
+    },
+    {
+        "id": 10,
+        "name": "Ashley Rodriguez",
+        "username": "ashleyrodriguez",
+        "email": "ashleyrodriguez@example.com"
+        
+    }
+]
