@@ -2,7 +2,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const InvalidScreen=()=>{
-        const navigate = useNavigate()
+    
+    const navigate = useNavigate()
     const handleRoute=()=>{
         navigate("/")
     }
