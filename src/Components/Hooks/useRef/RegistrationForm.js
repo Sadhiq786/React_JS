@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Register.css"
 
 
 const RegistrationForm = ()=>{
@@ -103,36 +104,38 @@ const RegistrationForm = ()=>{
          setLocation(enteredLocation)
     }
 
-    const handleSubmit=(event)=>{
+    // Submit
+    const handleSubmit = (event) => {
         event.preventDefault();
-
-    // localstorage
-    const userdata = {email, username, password, confirm_password, phone, course, location};
-    localStorage.setItem("RegisteredData", JSON.stringify(userdata));
-
-    setEmail("");
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
-    setPhone("");
-    setCourse("");
-    setLocation("");
-
-    alert("Registration successful")
-    }
+    
+        // Validation checks
+        if (!email || emailError || !username || usernameError || !phone || phoneError || !password || passwordError || !confirm_password || ConfirmpasswordError) {
+            alert("Please fill in all the required fields correctly");
+            return;
+        }
+    
+        // Storing data in local storage
+        const userdata = { email, username, password, confirm_password, phone, course, location };
+        localStorage.setItem("RegisteredData", JSON.stringify(userdata));
+    
+        // Resetting form fields
+        setEmail("");
+        setUsername("");
+        setPassword("");
+        setConfirmPassword("");
+        setPhone("");
+        setCourse("");
+        setLocation("");
+    
+        alert("Registration successful");
+    };
+    
 
     return(
         <>
-        <div>
+        <div className="register-container">
         <h5>Registration Form</h5>
-        <form style={{
-            border:"2px solid black",
-            textAlign:"center",
-            width:"500px",
-            marginLeft:"30%"
-
-        }}>
-
+        <form>
             {/* email */}
             <input type="email"
              name="email" 
@@ -140,7 +143,7 @@ const RegistrationForm = ()=>{
              onChange={handleEmail}
              placeholder="Email" 
              required
-             style={{ border: emailError ? "1px solid red" : "1px solid green", width:"200px"}}
+             style={{ border: emailError ? "1px solid red" : "1px solid green"}}
              /> <br/>
              {
                 emailError
@@ -155,7 +158,7 @@ const RegistrationForm = ()=>{
              value={username} 
              onChange={handleUsername}
              placeholder="Username"
-             style={{border: usernameError ? "1px solid red":"1px solid green", width:"200px"}}
+             style={{border: usernameError ? "1px solid red":"1px solid green"}}
              /> <br/>
              {
                 usernameError
@@ -169,7 +172,6 @@ const RegistrationForm = ()=>{
              value={password} 
              placeholder="Password"
              onChange={handlePassword}
-             style={{width:"200px"}}
              /> <br/><br/>
 
             <input type="password" 
@@ -177,7 +179,7 @@ const RegistrationForm = ()=>{
              value={confirm_password} 
              placeholder="Confirm Password"
              onChange={handleConfirmPassword}
-             style={{border: ConfirmpasswordError ? "1px solid red" : "1px solid green", width:"200px"}}
+             style={{border: ConfirmpasswordError ? "1px solid red" : "1px solid green"}}
              /> <br/>
              {
                 ConfirmpasswordError
@@ -191,7 +193,7 @@ const RegistrationForm = ()=>{
              value={phone}
              placeholder="Phone Number"
              onChange={handlePhone}
-             style={{border: phoneError ? "1px solid red": "1px solid green", width:"200px"}}
+             style={{border: phoneError ? "1px solid red": "1px solid green"}}
              /> 
              <br/>
              {
@@ -201,6 +203,7 @@ const RegistrationForm = ()=>{
              }<br/>
 
             <p style={{fontSize:"12px"}}>Please select one of the above course</p>
+            <div  className='course-radio'>
             <input
                 type="radio"
                 name="course"
@@ -208,7 +211,7 @@ const RegistrationForm = ()=>{
                 checked={course === "JavaScript"}
                 onChange={(event) => setCourse(event.target.value)}
                 />
-                <label>JavaScript</label>
+                <label>JavaScript</label><br/>
 
                 <input
                 type="radio"
@@ -216,8 +219,8 @@ const RegistrationForm = ()=>{
                 value="ReactJS"
                 checked={course === "ReactJS"}
                 onChange={(event) => setCourse(event.target.value)}
-                />
-                <label>ReactJS</label>
+                /> 
+                <label>ReactJS</label><br/>
 
                 <input
                 type="radio"
@@ -227,22 +230,17 @@ const RegistrationForm = ()=>{
                 onChange={(event) => setCourse(event.target.value)}
                 />
                 <label>Redux</label>
-            <select value={location} onChange={handleLocation} name="location" 
-                 style={{
-                    width:"200px",
-    
-                }}>
+            </div><br/>
+
+            <select value={location} onChange={handleLocation} name="location" className="location">
                 <option value="Hyderabad">Hyderabad</option>
                 <option value="Kukatpally">Kukatpally</option>
                 <option value="Nizampet">Nizampet</option>
             </select>
             <br/><br/> 
 
-            <input type="submit" value="login" onClick={handleSubmit}
-            style={{
-                width:"200px",
-
-            }}/>
+            <input type="submit" value="Register" onClick={handleSubmit}
+   />
         </form>
         </div>
         </>
