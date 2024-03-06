@@ -1,0 +1,30 @@
+
+input{
+    width: 30%;
+    padding: 8px;
+}
+
+.course-radio{
+    display: flex;
+    width: 10%;
+    gap: 5%;
+    margin-left: 40%;
+}
+
+.location{
+    width: 30%;
+    text-align: center;
+    height: 40px;
+}
+
+h5{
+    text-align: center;
+}
+
+.register-container{
+    margin-top:  20px;
+}
+
+form{
+    text-align: center;
+}
