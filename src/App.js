@@ -9,9 +9,9 @@ import RegistrationForm from "./Components/Hooks/useRef/RegistrationForm";
 function App() {
   return (
     <div>
-      {/* <NavigationStack/> */}
+      <NavigationStack/>
       {/* <RedirectTask/> */}
-      <RegistrationForm/>
+      {/* <RegistrationForm/> */}
     </div>
   );
 }
