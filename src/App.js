@@ -6,9 +6,8 @@ import NavigationStack from "./Navigation/navigation";
 function App() {
   return (
     <div>
-      {/* <NavigationStack/> */}
-      {/* <RedirectTask/> */}
-      <Table/>
+      <NavigationStack/>
+   
 
     </div>
   );
