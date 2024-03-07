@@ -4,6 +4,7 @@ import SettingScreen from "../../Pages/setting-screen";
 import AboutScreen from "../../Pages/aboutScreen";
 import ProfileScreen from "../../Pages/profileScreen";
 import InvalidScreen from "../../Pages/invalid-screen";
+import ProductDetail from "../../Pages/product-detail-screen";
 
 
 
@@ -18,6 +19,8 @@ const PostRoute=()=>{
             <Route path="/about" Component={AboutScreen} />
             <Route path="/profile" Component={ProfileScreen} />
             <Route path="*" Component={InvalidScreen}/>
+        
+            <Route path="/:category/:id" Component={ProductDetail} />
         </Routes>
         </>
     )

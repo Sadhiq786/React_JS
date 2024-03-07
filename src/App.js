@@ -1,4 +1,6 @@
-import LoginForm from "./Components/forms/LoginForm";
+import Table from "./Components/CRUDOperations/Table";
+import Spinner from "./Components/spinners/spinner";
+import NavigationStack from "./Navigation/navigation";
 
 
 function App() {
@@ -6,6 +8,7 @@ function App() {
     <div>
       {/* <NavigationStack/> */}
       {/* <RedirectTask/> */}
+      <Table/>
 
     </div>
   );
