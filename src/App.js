@@ -8,9 +8,8 @@ import NavigationStack from "./Navigation/navigation";
 function App() {
   return (
     <div>
-      {/* <NavigationStack/> */}
-      <CrudOperations/>
-
+      <NavigationStack/>
+      {/* <CrudOperations/> */}
     </div>
   );
 }
