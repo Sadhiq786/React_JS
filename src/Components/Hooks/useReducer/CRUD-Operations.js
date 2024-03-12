@@ -1,116 +1,142 @@
-import React, { useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 
-const initialState = {
-  items: [
-    { id: 1, name: "Item 1", price: 20 },
-    { id: 2, name: "Item 2", price: 30 },
-    { id: 3, name: "Item 3", price: 25 },
-  ],
-};
 
-function reducer(state, action) {
-  switch (action.type) {
-    case "ADD_ITEM":
-      return {
-        items: [...state.items, action.payload],
+const initialState={
+  Fruits: [
+    {id: 1, name: "Mango", price: 50},
+    {id: 2, name: "Kiwi", price: 60},
+    {id: 3, name: "Orange", price: 70},
+  ]
+}
+
+function reducer(state, action)
+{
+  switch(action.type)
+  {
+    case "ADD_FRUITS":
+      return{
+        Fruits: [...state.Fruits, action.payload],
       };
-    case "REMOVE_ITEM":
-      return {
-        items: state.items.filter((item) => item.id !== action.payload),
-      };
-    case "UPDATE_ITEM":
-      return {
-        items: state.items.map((item) =>
-          item.id === action.payload.id ? action.payload : item
-        ),
-      };
+    case "DELETE_FRUITS":
+      return{
+        Fruits: [...state.Fruits.filter((items)=>items.id!==action.payload)]
+      }
+    case  "UPDATE_FRUITS":
+      return{
+        Fruits: state.Fruits.map((item)=>
+        item.id==action.payload.id ? action.payload: item),
+      }
     default:
       return state;
   }
 }
 
-const CrudOperations = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [formData, setFormData] = useState({ id: null, name: "", price: "" });
+const CrudOperation = ()=>{
 
-  const handleAddItem = () => {
-    if (formData.name && formData.price) {
-      dispatch({
-        type: "ADD_ITEM",
-        payload: { id: Date.now(), ...formData },
-      });
-      setFormData({ id: null, name: "", price: "" });
-    }
-  };
+  const [state, dispatch]=useReducer(reducer, initialState)
+  const [formData, setFormData]=useState({
+    id: null,
+    name:"",
+    price: ""
+  })
 
-  const handleRemoveItem = (id) => {
+  const handleEdit=(item)=>{
+    setFormData(item)
+  }
+
+  const handleDelete=(id)=>{
     dispatch({
-      type: "REMOVE_ITEM",
+      type: "DELETE_FRUITS",
       payload: id,
-    });
-  };
+    })
+  }
 
-  const handleEditItem = (item) => {
-    setFormData(item);
-  };
-
-  const handleUpdateItem = () => {
-    if (formData.id !== null) {
+  // inputtags
+  const handleAddFruits=()=>{
+    if(formData.name && formData.price)
+    {
       dispatch({
-        type: "UPDATE_ITEM",
+        type:"ADD_FRUITS",
+        payload:{
+          id:state.Fruits.length + 1,
+          name: formData.name,
+          price: formData.price,
+        }
+      });
+      setFormData({
+        id:null,
+        name: "",
+        price: ""
+      })
+    }
+  }
+
+
+  const handleUpdateFruits=()=>{
+    if(formData.id!==null){
+      dispatch({
+        type: "UPDATE_FRUITS",
         payload: formData,
       });
-      setFormData({ id: null, name: "", price: "" });
+      setFormData({
+        id:null,
+        name:"",
+        price:""
+      })
     }
   };
 
-  return (
-    <div>
-      <h1>CRUD Operations</h1>
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {state.items.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
+
+  return(
+    <>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Fruits</th>
+        <th>Price</th>
+        <th>Actions</th>
+      </tr>
+
+      {
+        state.Fruits.map((eachFruit)=>{
+          return(
+            <tr key={eachFruit.id}>
+              <td>{eachFruit.id}</td>
+              <td>{eachFruit.name}</td>
+              <td>{eachFruit.price}</td>
               <td>
-                <button onClick={() => handleEditItem(item)}>Edit</button>
-                <button onClick={() => handleRemoveItem(item.id)}>Delete</button>
+                <button onClick={()=>handleEdit(eachFruit)}>Update</button>
+                <button onClick={()=>handleDelete(eachFruit.id)}>Delete</button>
               </td>
             </tr>
-          ))}
-        </tbody>
-      </table>
-      <div>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={formData.name}
-          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-        />
-        <label>Price:</label>
-        <input
-          type="text"
-          value={formData.price}
-          onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-        />
-        {formData.id === null ? (
-          <button onClick={handleAddItem}>Add Item</button>
-        ) : (
-          <button onClick={handleUpdateItem}>Update Item</button>
-        )}
-      </div>
-    </div>
-  );
-};
+          )
+        })
+      }
+    </table>
 
-export default CrudOperations;
+    <div>
+      <label>Name:</label>
+      <input type="text"
+       value={formData.name}
+       onChange={(e)=>setFormData({...formData, name: e.target.value})}
+       ></input>
+
+       <label>Price:</label>
+       <input
+       type="text"
+       value={formData.price}
+       onChange={(e)=>setFormData({...formData, price: e.target.value})}
+       ></input>
+
+       {
+        formData.id == null
+        ?
+        <button onClick={handleAddFruits}>Add Fruits</button>
+        :
+        <button onClick={handleUpdateFruits}>Update</button>
+       }
+    </div>
+    </>
+  )
+}
+export default CrudOperation;
