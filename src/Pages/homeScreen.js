@@ -40,6 +40,7 @@ const HomeScreen=()=>{
       }
       return greeting;
     }
+    
 
 
     console.log(new Date().getDay())
