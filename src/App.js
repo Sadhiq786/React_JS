@@ -1,15 +1,9 @@
-import Table from "./Components/CRUDOperations/Table";
-import CrudOperations from "./Components/Hooks/useReducer/CRUD-Operations";
-import CrudTable from "./Components/Hooks/useReducer/CRUD-Operations";
-import Spinner from "./Components/spinners/spinner";
-import NavigationStack from "./Navigation/navigation";
-
+import CustomButtons from "./Material_UI/Buttons";
 
 function App() {
   return (
     <div>
-      <NavigationStack/>
-      {/* <CrudOperations/> */}
+      <CustomButtons/>
     </div>
   );
 }
