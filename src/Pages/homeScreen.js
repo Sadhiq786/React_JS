@@ -6,22 +6,77 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import Spinner from "../Components/spinners/spinner";
+import useAxios from "../Components/Hooks/customHooks/useAxios";
+import { BASE_PROD_URL, endPoints } from "../endpoints/endPoint";
 
 const HomeScreen=()=>{
 
-    const[data, setData] = useState([])
-
+    const[data]=useAxios(`${BASE_PROD_URL}${endPoints.products}`);
+    const[day, setDay] = useState(null)
     useEffect(()=>{
-        axios.get("https://fakestoreapi.com/products")
-        .then(res=>{
-            if(res.status === 200)
-            {
-                setData(res.data);
-            }
-        })
-        .catch(err => console.log(err));
+      setDay(getGreeting())
+      // setDay(getToday())
     },[])
 
+    function getGreeting()
+    {
+      const timeInHousrs = new Date().getHours()
+      let greeting;
+      if(timeInHousrs>6 && timeInHousrs<11)
+      {
+        greeting = "Good Morning"
+      }
+      else if(timeInHousrs>=11 && timeInHousrs<=16)
+      {
+        greeting = "Good Afternoon"
+      }
+      else if(timeInHousrs>=16 && timeInHousrs<=18)
+      {
+        greeting = "Good Evening";
+      }
+      else
+      {
+        greeting="Good Night";
+      }
+      return greeting;
+    }
+
+
+    console.log(new Date().getDay())
+
+    function getToday()
+    {
+      var day;
+      switch(new Date().getDay())
+      {
+        case 0:
+          day = "Sunday";
+          break;
+        case 1:
+          day = "Monday";
+          break;
+        case 2:
+          day ="Tuesday";
+          break;
+        case 3:
+          day="Wednesday";
+          break;
+        case 4:
+          day = "Thursday";
+          break;
+        case 5:
+          day = "Friday";
+          break;
+        case 6:
+          day = "Saturday";
+          break
+        default :
+        day = null
+      }
+
+      return day
+    }
+    // getDay() --> 0, 6
     return(
         <>
         <Header/>
@@ -32,6 +87,7 @@ const HomeScreen=()=>{
             data.map((eachObject)=>{
                 return(
                     <div>
+                        <h2>{day}</h2>
                         <CustomCards data={eachObject}/>
                     </div>
                 )
