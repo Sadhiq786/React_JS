@@ -242,7 +242,7 @@ const ListofEmployees = ()=>{
         UpdateEmpTable(remove);
     }
     return(
-        <>``
+        <>
         <table style={tableStyle}>
             <tr>
                 <th style={headerStyle}>ID</th>

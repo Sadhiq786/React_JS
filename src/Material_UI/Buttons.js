@@ -7,7 +7,7 @@ const CustomButtons = ()=>{
         <div style={container}>
             <Button variant="contained">Click</Button>
             <Button>hello</Button>
-            <Button variant="contained" disableElevation color="palette.secondary.light">Click</Button>
+            <Button variant="contained" disableElevation >Click</Button>
             <Button disabled>Login</Button>
             <Button variant="outlined" >Login</Button>
         </div>

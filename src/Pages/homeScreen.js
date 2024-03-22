@@ -15,7 +15,6 @@ const HomeScreen=()=>{
     const[day, setDay] = useState(null)
     useEffect(()=>{
       setDay(getGreeting())
-      // setDay(getToday())
     },[])
 
     function getGreeting()
